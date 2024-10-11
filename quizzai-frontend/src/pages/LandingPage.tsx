@@ -1,7 +1,10 @@
 import React from "react";
 import LogoPrincipal from "../assets/logoprincipal.png";
+import { CustomInput, DifficultyButton } from "../components";
 
 const LandingPage = () => {
+  const [difficulty, setDifficulty] = React.useState<string>("Easy");
+
   return (
     <div
       style={{
@@ -19,6 +22,31 @@ const LandingPage = () => {
       <h1 style={{ color: "white", fontWeight: "lighter" }}>
         Otimize seus estudos usando Quizz.ai!
       </h1>
+      <CustomInput style={{ width: "50vw", height: "8vh" }} />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          width: "30vw",
+        }}
+      >
+        <DifficultyButton
+          difficulty="Easy"
+          isToggled={difficulty === "Easy"}
+          setDifficulty={() => setDifficulty("Easy")}
+        />
+        <DifficultyButton
+          difficulty="Medium"
+          isToggled={difficulty === "Medium"}
+          setDifficulty={() => setDifficulty("Medium")}
+        />
+        <DifficultyButton
+          difficulty="Hard"
+          isToggled={difficulty === "Hard"}
+          setDifficulty={() => setDifficulty("Hard")}
+        />
+      </div>
     </div>
   );
 };
